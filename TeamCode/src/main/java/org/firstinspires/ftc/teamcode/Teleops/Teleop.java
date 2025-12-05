@@ -7,6 +7,7 @@ import com.qualcomm.robotcore.hardware.DcMotor;
 import com.qualcomm.robotcore.hardware.DcMotorEx;
 
 @TeleOp
+@SuppressWarnings("unused")
 public class Teleop extends LinearOpMode {
 
     public DcMotor frontLeft;
