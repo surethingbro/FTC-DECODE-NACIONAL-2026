@@ -7,7 +7,7 @@ import com.qualcomm.robotcore.hardware.DcMotor;
 import com.qualcomm.robotcore.hardware.DcMotorEx;
 
 @TeleOp
-@SuppressWarnings("unused")
+
 public class Teleop extends LinearOpMode {
 
     public DcMotor frontLeft;
@@ -68,7 +68,7 @@ public class Teleop extends LinearOpMode {
             double forwardPower = -gamepad1.left_stick_y;
             double lateralPower = gamepad1.left_stick_x;
             double turnPower = -gamepad1.right_stick_x;
-
+            
             double denominator = Math.max(Math.abs(forwardPower) + Math.abs(lateralPower) + Math.abs(turnPower), 1);
             double frontLeftPower = (forwardPower + turnPower + lateralPower) / denominator;
             double frontRightPower = (forwardPower  - turnPower - lateralPower) / denominator;
