@@ -107,7 +107,7 @@ public class SensorAndyMarkIMUOrthogonal extends LinearOpMode
         /* The next two lines define the IMU orientation.
          * To Do:  EDIT these two lines to match YOUR mounting configuration.
          */
-        LogoFacingDirection logoDirection = LogoFacingDirection.UP;
+        LogoFacingDirection logoDirection = LogoFacingDirection.DOWN;
         I2cPortFacingDirection i2cDirection = I2cPortFacingDirection.FORWARD;
 
         AndyMarkIMUOrientationOnRobot orientationOnRobot = new AndyMarkIMUOrientationOnRobot(logoDirection, i2cDirection);
