@@ -1,6 +1,6 @@
 package org.firstinspires.ftc.teamcode.Testing;
 
-import com.arcrobotics.ftclib.kinematics.wpilibkinematics.DifferentialDriveKinematics;
+import com.seattlesolvers.solverslib.kinematics.wpilibkinematics.DifferentialDriveKinematics;
 import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
 
 public class SwerveDrive extends LinearOpMode {

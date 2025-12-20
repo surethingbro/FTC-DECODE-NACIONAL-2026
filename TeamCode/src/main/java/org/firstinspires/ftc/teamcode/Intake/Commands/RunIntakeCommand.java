@@ -1,6 +1,6 @@
 package org.firstinspires.ftc.teamcode.Intake.Commands;
 
-import com.arcrobotics.ftclib.command.CommandBase;
+import com.seattlesolvers.solverslib.command.CommandBase;
 import org.firstinspires.ftc.teamcode.Intake.Subsystems.IntakeSubsystem;
 
 public class RunIntakeCommand extends CommandBase {

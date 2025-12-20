@@ -44,7 +44,7 @@ public class MecanumTest extends LinearOpMode {
 
         while ( opModeIsActive() ) {
 
-            double forwardPower = -gamepad1.left_stick_y;
+            double forwardPower = gamepad1.left_stick_y;
             double lateralPower = -gamepad1.left_stick_x * 1.1;
             double turnPower = -gamepad1.right_stick_x;
 
