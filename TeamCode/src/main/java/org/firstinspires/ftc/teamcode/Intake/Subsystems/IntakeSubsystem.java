@@ -1,36 +1,36 @@
 package org.firstinspires.ftc.teamcode.Intake.Subsystems;
 
-import com.seattlesolvers.solverslib.command.CommandScheduler;
 import com.seattlesolvers.solverslib.command.SubsystemBase;
-import com.qualcomm.robotcore.hardware.DcMotor;
-
+import com.seattlesolvers.solverslib.hardware.motors.Motor;
 import org.firstinspires.ftc.robotcore.external.Telemetry;
 
 public class IntakeSubsystem extends SubsystemBase {
-    private final DcMotor intake;
+    private final Motor intake_motor;
     private final Telemetry telemetry;
 
-    public IntakeSubsystem(DcMotor intake, Telemetry telemetry) {
-        this.intake = intake;
+    public IntakeSubsystem(Motor intake_motor, Telemetry telemetry) {
+        this.intake_motor = intake_motor;
         this.telemetry = telemetry;
+
     }
+
     @Override
     public void periodic() {
-        telemetry.addData("Intake running", intake.getPower() != 0);
-        telemetry.addData("Intake Power", intake.getPower());
+        telemetry.addData("Intake running", intake_motor.get() != 0);
+        telemetry.addData("Intake Power", intake_motor.get());
         telemetry.update();
     }
 
     public void runIntake() {
-        intake.setPower(0.7);
+        intake_motor.set(0.7);
     }
 
     public void stopIntake() {
-        intake.setPower(0);
+        intake_motor.stopMotor();
     }
 
     public void runIntakeReverse() {
-        intake.setPower(-0.7);
+        intake_motor.set(-0.7);
     }
 
 }
