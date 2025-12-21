@@ -3,9 +3,10 @@ package org.firstinspires.ftc.teamcode.Intake.Commands;
 import com.seattlesolvers.solverslib.command.CommandBase;
 import org.firstinspires.ftc.teamcode.Intake.Subsystems.IntakeSubsystem;
 
+/** @noinspection FieldMayBeLocal */
 public class RunIntakeCommand extends CommandBase {
 
-     private IntakeSubsystem subsystem;
+     private final IntakeSubsystem subsystem;
 
      public RunIntakeCommand(IntakeSubsystem subsystem) {
          this.subsystem = subsystem;

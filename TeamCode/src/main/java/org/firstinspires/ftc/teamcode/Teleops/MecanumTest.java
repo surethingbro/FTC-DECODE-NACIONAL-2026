@@ -26,8 +26,8 @@ public class MecanumTest extends LinearOpMode {
         frontRight = hardwareMap.get(DcMotorEx.class, "right");
         backRight = hardwareMap.get(DcMotorEx.class, "backRight");
 
+        frontLeft.setDirection(DcMotor.Direction.REVERSE);
         frontRight.setDirection(DcMotor.Direction.REVERSE);
-        backRight.setDirection(DcMotor.Direction.REVERSE);
 
         intake = hardwareMap.get(DcMotor.class, "intake");
 
@@ -44,9 +44,9 @@ public class MecanumTest extends LinearOpMode {
 
         while ( opModeIsActive() ) {
 
-            double forwardPower = gamepad1.left_stick_y;
-            double lateralPower = -gamepad1.left_stick_x * 1.1;
-            double turnPower = -gamepad1.right_stick_x;
+            double forwardPower = -gamepad1.left_stick_y;
+            double lateralPower = gamepad1.left_stick_x * 1.1;
+            double turnPower = gamepad1.right_stick_x;
 
             double denominator = Math.max(Math.abs(forwardPower) + Math.abs(lateralPower) + Math.abs(turnPower), 1);
             double frontLeftPower = (forwardPower + turnPower + lateralPower) / denominator;
