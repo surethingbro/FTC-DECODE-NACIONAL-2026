@@ -28,9 +28,21 @@ public class TeleopTest extends CommandOpMode {
         gamepadOne = new GamepadEx(gamepad1);
 
         intake_subsystem = new IntakeSubsystem(hardwareMap, "intake");
-        mecanum = new MecanumDriveSubsystem(hardwareMap, "leftPar","backLeftPerp","right","backRight");
 
-        mecanumCommand = new MecanumDriveCommand(mecanum, gamepadOne::getLeftY, gamepadOne::getLeftX, gamepadOne::getRightX);
+        mecanum = new MecanumDriveSubsystem(
+                hardwareMap,
+                "leftPar",
+                "backLeftPerp",
+                "right",
+                "backRight"
+        );
+
+        mecanumCommand = new MecanumDriveCommand(
+                mecanum,
+                gamepadOne::getLeftY,
+                gamepadOne::getLeftX,
+                gamepadOne::getRightX
+        );
 
 
         gamepadOne.getGamepadButton(GamepadKeys.Button.A)
