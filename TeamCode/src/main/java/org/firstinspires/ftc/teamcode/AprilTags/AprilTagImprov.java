@@ -13,11 +13,29 @@ import org.firstinspires.ftc.vision.apriltag.AprilTagGameDatabase;
 import org.firstinspires.ftc.vision.apriltag.AprilTagProcessor;
 
 import java.util.List;
-import java.util.concurrent.TimeUnit;
+
+
+
 
 @TeleOp
 public class AprilTagImprov extends LinearOpMode {
 
+
+    public enum Pattern {
+        PPG, GPP, PGP, UNKNOWN
+    }
+
+    public static Pattern getPattern(int motifID) {
+        if (motifID == 21) {
+            return Pattern.GPP;
+        } else if (motifID == 22) {
+            return Pattern.PGP;
+        } else if (motifID == 23) {
+            return Pattern.PPG;
+        } else {
+            return Pattern.UNKNOWN;
+        }
+    }
 
     @SuppressLint("DefaultLocale")
     @Override
@@ -38,6 +56,7 @@ public class AprilTagImprov extends LinearOpMode {
                 .setStreamFormat(VisionPortal.StreamFormat.MJPEG)
                 .build();
 
+        /*
         while (visionPortal.getCameraState() != VisionPortal.CameraState.STREAMING) {}
 
         ExposureControl exposure = visionPortal.getCameraControl(ExposureControl.class);
@@ -47,7 +66,10 @@ public class AprilTagImprov extends LinearOpMode {
 
         GainControl gain = visionPortal.getCameraControl(GainControl.class);
         gain.setGain(255);
-        
+
+         */
+
+
         waitForStart();
 
         if (isStopRequested()) { return; }
@@ -56,7 +78,6 @@ public class AprilTagImprov extends LinearOpMode {
 
 
             List<AprilTagDetection> currentDetections = aprilTagProcessor.getDetections();
-            telemetry.addData("AprilTags Detected rn ", currentDetections.size());
 
             if (gamepad1.a) {
                 telemetry.addLine("visionPortal paused!");
@@ -73,9 +94,12 @@ public class AprilTagImprov extends LinearOpMode {
                 if (detectedTag.metadata != null) {
                     telemetry.addLine(String.format("\n==== (ID %d) %s", detectedTag.id, detectedTag.metadata.name));
                     telemetry.addLine(String.format("RBE %6.2f %6.2f %6.2f  (inch, deg, deg)", detectedTag.ftcPose.range, detectedTag.ftcPose.bearing, detectedTag.ftcPose.elevation));
-                }
 
+                    Pattern pattern = getPattern(detectedTag.id);
+                    telemetry.addData("Detected Pattern", pattern);
+                }
             }
+
 
             telemetry.update();
 

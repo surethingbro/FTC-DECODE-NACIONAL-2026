@@ -1,9 +1,11 @@
 package org.firstinspires.ftc.teamcode.Teleops;
 
 import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
+import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
 import com.qualcomm.robotcore.hardware.DcMotor;
 import com.qualcomm.robotcore.hardware.DcMotorEx;
 
+@TeleOp
 public class RobotCentricTest extends LinearOpMode {
     public DcMotor frontLeft;
     public DcMotor backLeft;
