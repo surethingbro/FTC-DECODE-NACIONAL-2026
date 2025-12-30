@@ -21,10 +21,18 @@ import java.util.List;
 public class AprilTagImprov extends LinearOpMode {
 
 
+    /**
+     * This enum stores the possible patterns in an FTC DECODE obelisk
+     */
     public enum Pattern {
         PPG, GPP, PGP, UNKNOWN
     }
 
+    /**
+     * This method returns the Pattern detected by our webcam when looking at the obelisk
+     * @param motifID the ID detected by the camera
+     * @return The detected MOTIF pattern
+     */
     public static Pattern getPattern(int motifID) {
         if (motifID == 21) {
             return Pattern.GPP;
