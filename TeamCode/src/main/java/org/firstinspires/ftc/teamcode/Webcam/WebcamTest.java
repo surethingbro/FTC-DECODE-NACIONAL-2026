@@ -5,6 +5,8 @@ import com.seattlesolvers.solverslib.command.CommandOpMode;
 import com.seattlesolvers.solverslib.gamepad.GamepadEx;
 
 import org.firstinspires.ftc.teamcode.Webcam.Subsystem.WebcamSubsystem;
+import org.firstinspires.ftc.teamcode.Webcam.Subsystem.WebcamSubsystem.Pattern;
+
 import org.firstinspires.ftc.vision.apriltag.AprilTagDetection;
 
 import java.util.List;
@@ -26,7 +28,7 @@ public class WebcamTest extends CommandOpMode {
         List<AprilTagDetection> detectedTags = webcamSubsystem.getDetectedTags();
         AprilTagDetection blueDetection = webcamSubsystem.getBlueBasketTag();
         AprilTagDetection redDetection = webcamSubsystem.getRedBasketTag();
-        WebcamSubsystem.Pattern pattern = webcamSubsystem.getObeliskPattern();
+        Pattern pattern = webcamSubsystem.getObeliskPattern();
 
         telemetry.addData("tags", detectedTags);
         telemetry.addData("bluebasket", blueDetection);
