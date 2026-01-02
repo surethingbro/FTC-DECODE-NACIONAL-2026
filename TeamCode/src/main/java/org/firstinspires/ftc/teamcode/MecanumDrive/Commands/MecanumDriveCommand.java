@@ -9,9 +9,7 @@ import java.util.function.DoubleSupplier;
 public class MecanumDriveCommand extends CommandBase {
 
     private final MecanumDriveSubsystem mecanum;
-    private final DoubleSupplier fwd;
-    private final DoubleSupplier lat;
-    private final DoubleSupplier trn;
+    private final DoubleSupplier fwd, lat, trn;
 
     public MecanumDriveCommand(MecanumDriveSubsystem subsystem, DoubleSupplier forward, DoubleSupplier lateral, DoubleSupplier turn) {
         mecanum = subsystem;

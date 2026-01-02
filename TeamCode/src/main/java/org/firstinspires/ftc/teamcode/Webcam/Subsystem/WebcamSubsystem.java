@@ -17,7 +17,7 @@ import java.util.List;
 public class WebcamSubsystem extends SubsystemBase {
 
     public enum Pattern {
-        PPG, GPP, PGP
+        PPG, GPP, PGP, UNKNOWN
     }
 
     private final AprilTagProcessor processor;
@@ -49,8 +49,14 @@ public class WebcamSubsystem extends SubsystemBase {
         return currentDetections;
     }
 
+    public void updateDetections() {
+        currentDetections = processor.getDetections();
+    }
 
     public AprilTagDetection getBlueBasketTag() {
+
+        updateDetections();
+
         for (AprilTagDetection detection : currentDetections) {
             if (detection.metadata != null && detection.id == 20) {
                 return detection;
@@ -60,6 +66,9 @@ public class WebcamSubsystem extends SubsystemBase {
     }
 
     public AprilTagDetection getRedBasketTag() {
+
+        updateDetections();
+
         for (AprilTagDetection detection : currentDetections) {
             if (detection.metadata != null && detection.id == 24) {
                 return detection;
@@ -69,6 +78,9 @@ public class WebcamSubsystem extends SubsystemBase {
     }
 
     public Pattern getObeliskPattern() {
+
+        updateDetections();
+
         for (AprilTagDetection detection : currentDetections) {
             if (detection.metadata != null && detection.id == 21) {
                 return Pattern.GPP;
@@ -78,7 +90,7 @@ public class WebcamSubsystem extends SubsystemBase {
                 return Pattern.PPG;
             }
         }
-        return null;
+        return Pattern.UNKNOWN;
     }
 
 

@@ -12,7 +12,6 @@ import org.firstinspires.ftc.teamcode.Intake.Subsystems.IntakeSubsystem;
 import org.firstinspires.ftc.teamcode.MecanumDrive.Commands.MecanumDriveCommand;
 import org.firstinspires.ftc.teamcode.MecanumDrive.Subsystem.MecanumDriveSubsystem;
 
-//ts wont upload gng
 /** @noinspection FieldCanBeLocal*/
 @TeleOp
 public class TeleopTest extends CommandOpMode {
@@ -56,4 +55,6 @@ public class TeleopTest extends CommandOpMode {
         register(mecanum);
         mecanum.setDefaultCommand(mecanumCommand);
     }
+
+
 }

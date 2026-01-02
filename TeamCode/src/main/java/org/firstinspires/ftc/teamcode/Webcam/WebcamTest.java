@@ -15,26 +15,24 @@ import java.util.List;
 @TeleOp
 public class WebcamTest extends CommandOpMode {
 
-    private GamepadEx gamepadOne;
     private WebcamSubsystem webcamSubsystem;
 
     @Override
     public void initialize() {
-        gamepadOne = new GamepadEx(gamepad1);
+
         webcamSubsystem = new WebcamSubsystem(hardwareMap);
-
-
 
         List<AprilTagDetection> detectedTags = webcamSubsystem.getDetectedTags();
         AprilTagDetection blueDetection = webcamSubsystem.getBlueBasketTag();
         AprilTagDetection redDetection = webcamSubsystem.getRedBasketTag();
         Pattern pattern = webcamSubsystem.getObeliskPattern();
 
-        telemetry.addData("tags", detectedTags);
+        telemetry.addData("tags", detectedTags.size());
         telemetry.addData("bluebasket", blueDetection);
         telemetry.addData("redbasket", redDetection);
         telemetry.addData("detected pattern", pattern);
 
-
     }
+
+
 }
