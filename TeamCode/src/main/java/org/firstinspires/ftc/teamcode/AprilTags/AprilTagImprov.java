@@ -14,37 +14,8 @@ import org.firstinspires.ftc.vision.apriltag.AprilTagProcessor;
 
 import java.util.List;
 
-
-
-//TEST COMMENT
-
 @TeleOp
 public class AprilTagImprov extends LinearOpMode {
-
-
-    /**
-     * This enum stores the possible patterns in an FTC DECODE obelisk
-     */
-    public enum Pattern {
-        PPG, GPP, PGP, UNKNOWN
-    }
-
-    /**
-     * This method returns the Pattern detected by our webcam when looking at the obelisk
-     * @param motifID the ID detected by the camera
-     * @return The detected MOTIF pattern
-     */
-    public static Pattern getPattern(int motifID) {
-        if (motifID == 21) {
-            return Pattern.GPP;
-        } else if (motifID == 22) {
-            return Pattern.PGP;
-        } else if (motifID == 23) {
-            return Pattern.PPG;
-        } else {
-            return Pattern.UNKNOWN;
-        }
-    }
 
     @SuppressLint("DefaultLocale")
     @Override
@@ -103,9 +74,6 @@ public class AprilTagImprov extends LinearOpMode {
                 if (detectedTag.metadata != null) {
                     telemetry.addLine(String.format("\n==== (ID %d) %s", detectedTag.id, detectedTag.metadata.name));
                     telemetry.addLine(String.format("RBE %6.2f %6.2f %6.2f  (inch, deg, deg)", detectedTag.ftcPose.range, detectedTag.ftcPose.bearing, detectedTag.ftcPose.elevation));
-
-                    Pattern pattern = getPattern(detectedTag.id);
-                    telemetry.addData("Detected Pattern", pattern);
                 }
             }
 
