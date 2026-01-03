@@ -1,5 +1,6 @@
 package org.firstinspires.ftc.teamcode.Teleops;
 
+import com.pedropathing.geometry.Pose;
 import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
 import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
 import com.qualcomm.robotcore.hardware.DcMotor;
@@ -17,6 +18,9 @@ public class MecanumTest extends LinearOpMode {
 
     public DcMotor intake;
 
+    //Test
+    public final Pose redBasket = new Pose(131,132);
+    public Pose robotPos = new Pose(72,72);
 
     @Override
     public void runOpMode() throws InterruptedException {
@@ -66,6 +70,8 @@ public class MecanumTest extends LinearOpMode {
             } else if (gamepad1.x) {
                 intake.setPower(-0.7);
             }
+
+            telemetry.addData("Distance (IN)", robotPos.distanceFrom(redBasket));
 
 
         }
