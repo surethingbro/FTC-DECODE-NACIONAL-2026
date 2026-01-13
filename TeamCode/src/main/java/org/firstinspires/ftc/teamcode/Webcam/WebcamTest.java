@@ -19,18 +19,22 @@ public class WebcamTest extends CommandOpMode {
     public void initialize() {
 
         webcamSubsystem = new WebcamSubsystem(hardwareMap);
+    }
 
+    @Override
+    public void run() {
+        
         List<AprilTagDetection> detectedTags = webcamSubsystem.getDetectedTags();
         AprilTagDetection blueDetection = webcamSubsystem.getBlueBasketTag();
         AprilTagDetection redDetection = webcamSubsystem.getRedBasketTag();
         Pattern pattern = webcamSubsystem.getObeliskPattern();
 
-        telemetry.addData("tags", detectedTags.size());
-        telemetry.addData("bluebasket", blueDetection);
-        telemetry.addData("redbasket", redDetection);
-        telemetry.addData("detected pattern", pattern);
-
+        if (!detectedTags.isEmpty()) {
+            telemetry.addData("tags", detectedTags.size());
+            telemetry.addData("bluebasket", blueDetection);
+            telemetry.addData("redbasket", redDetection);
+            telemetry.addData("detected pattern", pattern);
+            telemetry.update();
+        }
     }
-
-
 }

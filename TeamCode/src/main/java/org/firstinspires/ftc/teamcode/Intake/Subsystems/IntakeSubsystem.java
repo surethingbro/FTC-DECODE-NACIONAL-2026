@@ -8,19 +8,12 @@ import org.firstinspires.ftc.robotcore.external.Telemetry;
 public class IntakeSubsystem extends SubsystemBase {
 
     private final Motor intake_motor;
-    Telemetry telemetry;
 
     public IntakeSubsystem(final HardwareMap hardwareMap, final String name) {
-        intake_motor = hardwareMap.get(Motor.class, name);
+        intake_motor = new Motor(hardwareMap, name);
 
-    }
-
-    @Override
-    public void periodic() {
-        telemetry.addData("Intake running", intake_motor.get() != 0);
-        telemetry.addData("Intake Power", intake_motor.get());
-        telemetry.update();
-
+        intake_motor.setRunMode(Motor.RunMode.RawPower);
+        intake_motor.setZeroPowerBehavior(Motor.ZeroPowerBehavior.BRAKE);
     }
 
     public void runIntake() {

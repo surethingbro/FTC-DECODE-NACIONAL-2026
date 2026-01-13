@@ -19,9 +19,8 @@ public class MecanumTest extends LinearOpMode {
     public DcMotor intake;
 
     //Test
-    public final Pose redBasket = new Pose(131,132);
+    public Pose redBasket = new Pose(131,132);
     public Pose robotPos = new Pose(72,72);
-
     @Override
     public void runOpMode() throws InterruptedException {
 
@@ -72,7 +71,7 @@ public class MecanumTest extends LinearOpMode {
             }
 
             telemetry.addData("Distance (IN)", robotPos.distanceFrom(redBasket));
-
+            telemetry.update();
 
         }
     }
