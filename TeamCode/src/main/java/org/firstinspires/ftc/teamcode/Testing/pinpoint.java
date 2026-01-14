@@ -1,4 +1,4 @@
-package org.firstinspires.ftc.teamcode;
+package org.firstinspires.ftc.teamcode.Testing;
 
 import com.pedropathing.geometry.Pose;
 import com.qualcomm.hardware.gobilda.GoBildaPinpointDriver;
@@ -24,10 +24,7 @@ public class pinpoint extends LinearOpMode {
 
         driver.setOffsets(0,0 , DistanceUnit.MM);
 
-        //distance = Math.sqrt((x1-x2)(x1-x2) + (y1-y2)(y1-y2));
-
         driver.setEncoderResolution(GoBildaPinpointDriver.GoBildaOdometryPods.goBILDA_4_BAR_POD);
-        //driver.setEncoderDirections();
 
         driver.resetPosAndIMU();
 
