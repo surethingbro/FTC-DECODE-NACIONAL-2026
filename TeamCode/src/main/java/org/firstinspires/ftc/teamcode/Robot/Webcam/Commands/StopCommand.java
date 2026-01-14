@@ -1,13 +1,14 @@
-package org.firstinspires.ftc.teamcode.Webcam.Commands;
+package org.firstinspires.ftc.teamcode.Robot.Webcam.Commands;
 
 import com.seattlesolvers.solverslib.command.CommandBase;
+import org.firstinspires.ftc.teamcode.Robot.Webcam.Subsystem.WebcamSubsystem;
 
-import org.firstinspires.ftc.teamcode.Webcam.Subsystem.WebcamSubsystem;
 
-public class GetRedBasketCommand extends CommandBase {
+public class StopCommand extends CommandBase {
+
     private final WebcamSubsystem subsystem;
 
-    public GetRedBasketCommand(WebcamSubsystem subsystem) {
+    public StopCommand(WebcamSubsystem subsystem) {
         this.subsystem = subsystem;
 
         addRequirements(subsystem);
@@ -15,12 +16,11 @@ public class GetRedBasketCommand extends CommandBase {
 
     @Override
     public void initialize() {
-        subsystem.getRedBasketTag();
+        subsystem.stop();
     }
 
     @Override
     public boolean isFinished() {
         return true;
     }
-
 }

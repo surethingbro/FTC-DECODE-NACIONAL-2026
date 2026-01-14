@@ -1,8 +1,4 @@
-package org.firstinspires.ftc.teamcode.Shooter;
-
-import com.pedropathing.math.MathFunctions;
-
-import org.opencv.core.Mat;
+package org.firstinspires.ftc.teamcode.Robot.Shooter;
 
 public class ShooterConstants {
 

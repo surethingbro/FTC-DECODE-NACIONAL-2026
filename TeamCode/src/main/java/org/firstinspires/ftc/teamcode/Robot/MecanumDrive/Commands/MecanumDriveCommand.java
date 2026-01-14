@@ -1,8 +1,8 @@
-package org.firstinspires.ftc.teamcode.MecanumDrive.Commands;
+package org.firstinspires.ftc.teamcode.Robot.MecanumDrive.Commands;
 
 import com.seattlesolvers.solverslib.command.CommandBase;
 
-import org.firstinspires.ftc.teamcode.MecanumDrive.Subsystem.MecanumDriveSubsystem  ;
+import org.firstinspires.ftc.teamcode.Robot.MecanumDrive.Subsystem.MecanumDriveSubsystem  ;
 
 import java.util.function.DoubleSupplier;
 

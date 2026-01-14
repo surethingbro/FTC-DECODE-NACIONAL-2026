@@ -1,13 +1,14 @@
-package org.firstinspires.ftc.teamcode.Intake.Commands;
+package org.firstinspires.ftc.teamcode.Robot.Intake.Commands;
 
 import com.seattlesolvers.solverslib.command.CommandBase;
-import org.firstinspires.ftc.teamcode.Intake.Subsystems.IntakeSubsystem;
 
-public class RunIntakeReversedCommand extends CommandBase {
+import org.firstinspires.ftc.teamcode.Robot.Intake.Subsystems.IntakeSubsystem;
+
+public class StopIntakeCommand extends CommandBase {
 
     private IntakeSubsystem subsystem;
 
-    public RunIntakeReversedCommand(IntakeSubsystem subsystem) {
+    public StopIntakeCommand(IntakeSubsystem subsystem) {
         this.subsystem = subsystem;
 
         addRequirements(subsystem);
@@ -16,7 +17,7 @@ public class RunIntakeReversedCommand extends CommandBase {
 
     @Override
     public void initialize() {
-        subsystem.runIntakeReverse();
+        subsystem.stopIntake();
     }
 
     @Override
@@ -24,3 +25,4 @@ public class RunIntakeReversedCommand extends CommandBase {
         return true;
     }
 }
+

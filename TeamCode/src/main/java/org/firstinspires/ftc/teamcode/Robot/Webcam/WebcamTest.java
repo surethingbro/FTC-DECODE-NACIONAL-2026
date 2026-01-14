@@ -1,9 +1,10 @@
-package org.firstinspires.ftc.teamcode.Webcam;
-
+package org.firstinspires.ftc.teamcode.Robot.Webcam
+        ;
 import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
 import com.seattlesolvers.solverslib.command.CommandOpMode;
-import org.firstinspires.ftc.teamcode.Webcam.Subsystem.WebcamSubsystem;
-import org.firstinspires.ftc.teamcode.Webcam.Subsystem.WebcamSubsystem.Pattern;
+
+import org.firstinspires.ftc.teamcode.Robot.Webcam.Subsystem.WebcamSubsystem;
+import org.firstinspires.ftc.teamcode.Robot.Webcam.Subsystem.WebcamSubsystem.Pattern;
 
 import org.firstinspires.ftc.vision.apriltag.AprilTagDetection;
 

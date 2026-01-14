@@ -4,9 +4,10 @@ import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
 import com.seattlesolvers.solverslib.command.CommandOpMode;
 import com.seattlesolvers.solverslib.gamepad.GamepadEx;
 
-import org.firstinspires.ftc.teamcode.Intake.Subsystems.IntakeSubsystem;
-import org.firstinspires.ftc.teamcode.MecanumDrive.Commands.MecanumDriveCommand;
-import org.firstinspires.ftc.teamcode.MecanumDrive.Subsystem.MecanumDriveSubsystem;
+import org.firstinspires.ftc.teamcode.Robot.Intake.Subsystems.IntakeSubsystem;
+import org.firstinspires.ftc.teamcode.Robot.MecanumDrive.Commands.MecanumDriveCommand;
+import org.firstinspires.ftc.teamcode.Robot.MecanumDrive.Subsystem.MecanumDriveSubsystem;
+
 
 /** @noinspection FieldCanBeLocal*/
 @TeleOp
