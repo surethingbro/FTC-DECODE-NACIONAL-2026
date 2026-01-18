@@ -22,7 +22,7 @@ public class MecanumDriveCommand extends CommandBase {
 
     @Override
     public void execute() {
-        mecanum.drive(fwd.getAsDouble(), lat.getAsDouble(), trn.getAsDouble());
+        //mecanum.drive(fwd.getAsDouble(), lat.getAsDouble(), trn.getAsDouble());
 
     }
 }

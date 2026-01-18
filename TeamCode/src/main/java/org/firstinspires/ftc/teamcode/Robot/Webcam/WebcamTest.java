@@ -4,7 +4,7 @@ import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
 import com.seattlesolvers.solverslib.command.CommandOpMode;
 
 import org.firstinspires.ftc.teamcode.Robot.Webcam.Subsystem.WebcamSubsystem;
-import org.firstinspires.ftc.teamcode.Robot.Webcam.Subsystem.WebcamSubsystem.Pattern;
+
 
 import org.firstinspires.ftc.vision.apriltag.AprilTagDetection;
 
@@ -19,12 +19,13 @@ public class WebcamTest extends CommandOpMode {
     @Override
     public void initialize() {
 
-        webcamSubsystem = new WebcamSubsystem(hardwareMap);
+        //webcamSubsystem = new WebcamSubsystem(hardwareMap);
     }
 
     @Override
     public void run() {
-        
+
+        /*
         List<AprilTagDetection> detectedTags = webcamSubsystem.getDetectedTags();
         AprilTagDetection blueDetection = webcamSubsystem.getBlueBasketTag();
         AprilTagDetection redDetection = webcamSubsystem.getRedBasketTag();
@@ -37,5 +38,7 @@ public class WebcamTest extends CommandOpMode {
             telemetry.addData("detected pattern", pattern);
             telemetry.update();
         }
+
+         */
     }
 }

@@ -6,11 +6,8 @@ import com.seattlesolvers.solverslib.command.CommandOpMode;
 import com.seattlesolvers.solverslib.gamepad.GamepadEx;
 import com.seattlesolvers.solverslib.gamepad.GamepadKeys;
 
-import org.firstinspires.ftc.teamcode.Robot.Intake.Commands.RunIntakeCommand;
-import org.firstinspires.ftc.teamcode.Robot.Intake.Commands.RunIntakeReversedCommand;
-import org.firstinspires.ftc.teamcode.Robot.Intake.Commands.StopIntakeCommand;
-import org.firstinspires.ftc.teamcode.Robot.Intake.Subsystems.IntakeSubsystem;
 
+/*
 @TeleOp
 public class IntakeTest extends CommandOpMode {
 
@@ -36,3 +33,6 @@ public class IntakeTest extends CommandOpMode {
                 .whenReleased(new StopIntakeCommand(intake_subsystem));
     }
 }
+
+
+ */

@@ -9,7 +9,10 @@ import org.firstinspires.ftc.teamcode.Robot.MecanumDrive.Commands.MecanumDriveCo
 import org.firstinspires.ftc.teamcode.Robot.MecanumDrive.Subsystem.MecanumDriveSubsystem;
 
 
+
 /** @noinspection FieldCanBeLocal*/
+
+/*
 @TeleOp
 public class TeleopTest extends CommandOpMode {
 
@@ -42,4 +45,6 @@ public class TeleopTest extends CommandOpMode {
         mecanum.setDefaultCommand(mecanumCommand);
     }
 
+
 }
+ */

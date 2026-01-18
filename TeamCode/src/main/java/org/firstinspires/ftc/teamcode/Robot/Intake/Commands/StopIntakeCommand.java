@@ -4,6 +4,7 @@ import com.seattlesolvers.solverslib.command.CommandBase;
 
 import org.firstinspires.ftc.teamcode.Robot.Intake.Subsystems.IntakeSubsystem;
 
+/*
 public class StopIntakeCommand extends CommandBase {
 
     private IntakeSubsystem subsystem;
@@ -25,4 +26,6 @@ public class StopIntakeCommand extends CommandBase {
         return true;
     }
 }
+
+ */
 

@@ -1,37 +1,64 @@
 package org.firstinspires.ftc.teamcode.Robot.MecanumDrive.Subsystem;
 
+import com.pedropathing.follower.Follower;
+import com.pedropathing.geometry.Pose;
+import com.pedropathing.math.Vector;
 import com.qualcomm.robotcore.hardware.HardwareMap;
 import com.seattlesolvers.solverslib.command.SubsystemBase;
-import com.seattlesolvers.solverslib.drivebase.MecanumDrive;
-import com.seattlesolvers.solverslib.hardware.motors.Motor;
-import com.seattlesolvers.solverslib.hardware.motors.MotorEx;
+
+import org.firstinspires.ftc.teamcode.Robot.Robot;
+import org.firstinspires.ftc.teamcode.pedroPathing.Constants;
 
 public class MecanumDriveSubsystem extends SubsystemBase {
+   Robot robot = Robot.get();
 
-    private final MecanumDrive mecanumDrive;
+   public Follower follower;
+   public static Pose lastPose = new Pose(0,0,0);
+   public static Pose blueBasket = new Pose(0,144);
+   public static Pose redBasket = blueBasket.mirror();
 
-    public MecanumDriveSubsystem(MotorEx frontLeft,MotorEx backLeft, MotorEx frontRight, MotorEx backRight) {
+   public MecanumDriveSubsystem(HardwareMap hardwareMap, Pose startingPose) {
+       this.follower = Constants.createFollower(hardwareMap);
+       follower.setStartingPose(startingPose == null ? new Pose(0,0,0) : startingPose);
+       follower.update();
+   }
 
-        frontLeft.setZeroPowerBehavior(Motor.ZeroPowerBehavior.BRAKE);
-        backLeft.setZeroPowerBehavior(Motor.ZeroPowerBehavior.BRAKE);
-        frontRight.setZeroPowerBehavior(Motor.ZeroPowerBehavior.BRAKE);
-        backRight.setZeroPowerBehavior(Motor.ZeroPowerBehavior.BRAKE);
+    @Override
+    public void periodic() {
+        lastPose = follower.getPose();
 
-        mecanumDrive = new MecanumDrive(frontLeft, backLeft, frontRight, backRight);
+        robot.multipleTelemetry.addData("X:", lastPose.getX());
+        robot.multipleTelemetry.addData("Y:", lastPose.getY());
+        robot.multipleTelemetry.addData("Velocity:", getVelocity().getMagnitude());
+        robot.multipleTelemetry.addData("Heading:", Math.toDegrees(follower.getHeading()));
+        robot.multipleTelemetry.addData("Angular velocity:", Math.toDegrees(getAngularVelocity()));
+        follower.update();
     }
 
-    public MecanumDriveSubsystem(HardwareMap hardwareMap, final String frontLeftName, String backLeftName, String frontRightName, String backRightName) {
-        this(new MotorEx(hardwareMap, frontLeftName),
-             new MotorEx(hardwareMap, backLeftName),
-             new MotorEx(hardwareMap, frontRightName),
-             new MotorEx(hardwareMap, backRightName)
-        );
-
-
-
+    public void setTeleOpDrive(double forward, double strafe, double rotation) {
+       follower.setTeleOpDrive(forward,strafe, rotation);
     }
 
-    public void drive(double forward, double lateral, double turn) {
-        mecanumDrive.driveRobotCentric(lateral,forward,turn);
+    public void resetHeading(double newHeading) {
+       follower.setHeading(newHeading);
     }
+
+    public Vector getVelocity() {
+       return follower.getVelocity();
+    }
+
+    public double getAngularVelocity() {
+       return follower.getAngularVelocity();
+    }
+
+    public Vector getAcceleration() {
+       return follower.getAcceleration();
+    }
+
+    public Pose getPose() {
+       return follower.getPose();
+    }
+
+
+
 }
