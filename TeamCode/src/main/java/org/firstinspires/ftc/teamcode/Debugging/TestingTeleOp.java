@@ -95,8 +95,8 @@ public class TestingTeleOp extends LinearOpMode {
             }
 
             if (gamepad2.a) {
-                shooterLeft.setPower(0.5);
-                shooterRight.setPower(0.5);
+                shooterLeft.setPower(1);
+                shooterRight.setPower(1);
             } else if (gamepad2.right_bumper) {
                 shooterLeft.setPower(0.75);
                 shooterRight.setPower(0.75);

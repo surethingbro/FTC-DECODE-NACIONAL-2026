@@ -14,6 +14,7 @@ public class Transfer extends SubsystemBase {
         transfer.setRunMode(Motor.RunMode.RawPower);
         transfer.setZeroPowerBehavior(Motor.ZeroPowerBehavior.FLOAT);
         transfer.setInverted(true);
+
     }
 
     public void transferArtifact() {

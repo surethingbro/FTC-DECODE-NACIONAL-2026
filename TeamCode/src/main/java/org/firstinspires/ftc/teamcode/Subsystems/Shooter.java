@@ -23,7 +23,7 @@ public class Shooter extends SubsystemBase {
         shooterLeft.setZeroPowerBehavior(Motor.ZeroPowerBehavior.FLOAT);
         shooterRight.setZeroPowerBehavior(Motor.ZeroPowerBehavior.FLOAT);
 
-        hood.set(0);
+        hood.set(1);
 
     }
 
