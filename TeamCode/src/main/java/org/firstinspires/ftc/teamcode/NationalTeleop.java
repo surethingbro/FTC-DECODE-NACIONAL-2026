@@ -50,21 +50,12 @@ public class NationalTeleop extends CommandOpMode {
                 () -> driver1.getRightX()
         );
 
-        CommandScheduler.getInstance().setDefaultCommand(mecanum, mecanumcmd);
-
         driver1.getGamepadButton(GamepadKeys.Button.A)
                 .whileHeld(intake::runIntake)
                 .whenReleased(intake::stop);
 
-
-        register(intake, transfer, shooter, mecanum);
-        schedule(mecanumcmd);
-    }
-
-    @Override
-    public void run() {
-        telemetry.addLine("dsfgrth");
-        telemetry.update();
+        register(mecanum);
+        mecanum.setDefaultCommand(mecanumcmd);
     }
 
 }
