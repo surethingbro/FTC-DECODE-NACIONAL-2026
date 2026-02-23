@@ -1,8 +1,8 @@
 package org.firstinspires.ftc.teamcode;
 
+import com.pedropathing.util.Timer;
 import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
 import com.seattlesolvers.solverslib.command.CommandOpMode;
-import com.seattlesolvers.solverslib.command.CommandScheduler;
 import com.seattlesolvers.solverslib.gamepad.GamepadEx;
 import com.seattlesolvers.solverslib.gamepad.GamepadKeys;
 
@@ -12,6 +12,7 @@ import org.firstinspires.ftc.teamcode.Subsystems.MecanumDrivetrain;
 import org.firstinspires.ftc.teamcode.Subsystems.Shooter;
 import org.firstinspires.ftc.teamcode.Subsystems.Transfer;
 
+@Deprecated
 @TeleOp
 @SuppressWarnings("FieldCanbeLocal")
 public class NationalTeleop extends CommandOpMode {
@@ -22,19 +23,20 @@ public class NationalTeleop extends CommandOpMode {
     private Transfer transfer;
     private Shooter shooter;
 
-    private GamepadEx driver1;
-    private GamepadEx driver2;
+    private GamepadEx leo;
+    private GamepadEx kakeru;
 
     private MecanumDriveCommand mecanumcmd;
+
 
     @Override
     public void initialize() {
 
-        driver1 = new GamepadEx(gamepad1);
-        driver2 = new GamepadEx(gamepad2);
+        leo = new GamepadEx(gamepad1);
+        kakeru = new GamepadEx(gamepad2);
 
         intake = new Intake(hardwareMap, "intake");
-        transfer = new Transfer(hardwareMap, "transfer");
+        transfer = new Transfer(hardwareMap, "transfer", new Timer());
         shooter = new Shooter(hardwareMap, "shooterLeft", "shooterRight", "hood");
 
         mecanum = new MecanumDrivetrain(hardwareMap,
@@ -45,14 +47,23 @@ public class NationalTeleop extends CommandOpMode {
         );
 
         mecanumcmd = new MecanumDriveCommand(mecanum,
-                () -> driver1.getLeftX(),
-                () -> driver1.getLeftY(),
-                () -> driver1.getRightX()
+                () -> -leo.getLeftX(),
+                () -> -leo.getLeftY(),
+                () -> -leo.getRightX()
         );
 
-        driver1.getGamepadButton(GamepadKeys.Button.A)
+        leo.getGamepadButton(GamepadKeys.Button.A)
                 .whileHeld(intake::runIntake)
                 .whenReleased(intake::stop);
+
+        kakeru.getGamepadButton(GamepadKeys.Button.A)
+                .whenPressed(shooter::shootClose);
+
+        kakeru.getGamepadButton(GamepadKeys.Button.B)
+                .whenPressed(shooter::stopShoot);
+
+        kakeru.getGamepadButton(GamepadKeys.Button.X)
+                .whenPressed(transfer::transferArtifact);
 
         register(mecanum);
         mecanum.setDefaultCommand(mecanumcmd);

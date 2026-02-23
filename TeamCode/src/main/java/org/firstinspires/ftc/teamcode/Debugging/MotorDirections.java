@@ -38,6 +38,7 @@ public class MotorDirections extends OpMode {
         leftRear = hardwareMap.get(DcMotorEx.class, "backLeft");
         rightRear = hardwareMap.get(DcMotorEx.class, "backRight");
         rightFront = hardwareMap.get(DcMotorEx.class, "frontRight");
+
         leftFront.setDirection(direction(leftFrontMotorDirection));
         leftRear.setDirection(direction(leftRearMotorDirection));
         rightFront.setDirection(direction(rightFrontMotorDirection));

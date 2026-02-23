@@ -12,7 +12,6 @@ public class MecanumDebugger extends OpMode {
     DcMotorEx backLeft;
     DcMotorEx backRight;
 
-
     @Override
     public void init() {
 
@@ -29,6 +28,8 @@ public class MecanumDebugger extends OpMode {
         if (gamepad1.a) {
             frontLeft.setPower(1);
             telemetry.addData("frontleft", frontLeft.getPower());
+            telemetry.addLine("cdvbggfvbgtbnh");
+            telemetry.update();
         } else if (gamepad1.b) {
             frontRight.setPower(1);
             telemetry.addData("frontRight", frontRight.getPower());

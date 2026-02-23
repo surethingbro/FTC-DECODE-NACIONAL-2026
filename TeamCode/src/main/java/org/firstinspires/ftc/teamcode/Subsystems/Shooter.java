@@ -27,9 +27,9 @@ public class Shooter extends SubsystemBase {
 
     }
 
-    public void shoot() {
-        shooterLeft.set(0.5);
-        shooterRight.set(0.5);
+    public void shootClose() {
+        shooterLeft.set(0.75);
+        shooterRight.set(0.75);
     }
 
     public void stopShoot() {

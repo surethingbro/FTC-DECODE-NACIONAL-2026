@@ -1,4 +1,4 @@
-package org.firstinspires.ftc.teamcode.Debugging;
+package org.firstinspires.ftc.teamcode;
 
 import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
 import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
@@ -8,8 +8,8 @@ import com.qualcomm.robotcore.hardware.DcMotorSimple;
 import com.qualcomm.robotcore.hardware.Servo;
 
 
-@TeleOp(name = "final")
-public class TestingTeleOp extends LinearOpMode {
+@TeleOp(name = "National telop")
+public class NationalTelop extends LinearOpMode {
 
     DcMotorEx frontLeft;
     DcMotorEx frontRight;
@@ -24,10 +24,6 @@ public class TestingTeleOp extends LinearOpMode {
     Servo hood;
 
     public double hoodPosition = 1;
-
-    double cycletime = 0;
-    double looptime = 0;
-    double oldtime = 0;
 
     @Override
     public void runOpMode() throws InterruptedException {
@@ -95,9 +91,6 @@ public class TestingTeleOp extends LinearOpMode {
             }
 
             if (gamepad2.a) {
-                shooterLeft.setPower(1);
-                shooterRight.setPower(1);
-            } else if (gamepad2.right_bumper) {
                 shooterLeft.setPower(0.75);
                 shooterRight.setPower(0.75);
             } else if (gamepad2.b) {
@@ -110,17 +103,10 @@ public class TestingTeleOp extends LinearOpMode {
             }
 
 
-            looptime = getRuntime();
-            cycletime = looptime-oldtime;
-            oldtime = looptime;
-
+            if (gamepad1.b) {
+                hoodPosition = 0.5;
+            }
             hood.setPosition(hoodPosition);
-
-            telemetry.addData("flywheelPower", shooterLeft.getPower());
-            telemetry.addData("flywheelPower", shooterRight.getPower());
-
-            telemetry.addData("hood pos", hood.getPosition());
-            telemetry.update();
         }
 
     }
